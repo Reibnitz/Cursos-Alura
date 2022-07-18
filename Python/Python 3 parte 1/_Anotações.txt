@@ -1,0 +1,44 @@
+ABRINDO E EDITANDO ARQUIVOS
+
+	arquivo = open("palavras.txt", "w")
+# Modificadores "w" = write (cria um novo documento), "r" = read, "a" append (adiciona a um documento existente)
+	arquivo.write("texto a ser escrito\n")
+# \n pula linha
+	arquivo.close() # Fechar arquivo para economizar processamento e liberar acesso para outros programas
+
+	linha = arquivo.readline()
+	print(linha)
+# Printa a primeira linha do arquivo e pula para a linha seguinte. Repetindo o comando irá printar a linha seguinte.
+
+Também é possível abrir e manipular imagens adicionando "b" ao final do modificador (wb, rb).
+	O código abaixo cria uma cópia de uma imagem:
+	logo = open('python-logo.png', 'rb')
+	data = logo.read()
+	logo.close()
+
+	logo2 = open('python-logo2.png', 'wb')
+	logo2.write(data)
+	logo2.close()
+
+
+
+PARÂMETROS OPCIONAIS
+
+	def funcao(parametro = "parametro_opcional"):
+		print(parametro)
+# Dessa forma, a função funcao() pode ou não ter parâmetro. Caso não seja definido parâmetro, a função irá executar o parametro_opcional.
+
+
+DICIONÁRIO
+
+	dicionario = {"Elemento_1": "Valor_1", "Elemento_2": "Valor_2", "Elemento_3": "Valor_3"}
+	dicionario ["Elemento_1"] irá retornar "Valor_1"
+
+
+MÉTODOS ESTÁTICOS
+
+	@staticmethod
+	def funcao(): # Sem 'self'
+		pass
+# Método estático é uma função dentro de uma classe, que pode ser executada mesmo sem criar um objeto.
+# Métodos estáticos se assemelham à linguagem procedural já que independe de um objeto para ser chamado e não manipulam informações/atributos de objetos

@@ -1,0 +1,7 @@
+export interface NegociacoesApi {
+    param1: type;
+    param2: type;
+    ...
+}
+
+Interfaces permitem tipar o retorno de APIs conforme os nomes dos parâmetros retornados. Isso promove o auto-complete na IDE. Caso haja alteração no nome de parâmetros, basta clicar com o botão direito sobre o nome do parâmetro e selecionar 'Rename symbol' para alterar todas as ocorrências em todos os documentos do projeto.

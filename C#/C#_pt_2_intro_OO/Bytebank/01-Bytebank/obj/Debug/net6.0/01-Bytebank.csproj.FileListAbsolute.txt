@@ -1,0 +1,15 @@
+C:\Users\lucas\Documents\Programação\Alura\C#\C#_pt_2_intro_OO\Bytebank\01-Bytebank\bin\Debug\net6.0\01-Bytebank.exe
+C:\Users\lucas\Documents\Programação\Alura\C#\C#_pt_2_intro_OO\Bytebank\01-Bytebank\bin\Debug\net6.0\01-Bytebank.deps.json
+C:\Users\lucas\Documents\Programação\Alura\C#\C#_pt_2_intro_OO\Bytebank\01-Bytebank\bin\Debug\net6.0\01-Bytebank.runtimeconfig.json
+C:\Users\lucas\Documents\Programação\Alura\C#\C#_pt_2_intro_OO\Bytebank\01-Bytebank\bin\Debug\net6.0\01-Bytebank.dll
+C:\Users\lucas\Documents\Programação\Alura\C#\C#_pt_2_intro_OO\Bytebank\01-Bytebank\bin\Debug\net6.0\01-Bytebank.pdb
+C:\Users\lucas\Documents\Programação\Alura\C#\C#_pt_2_intro_OO\Bytebank\01-Bytebank\obj\Debug\net6.0\01-Bytebank.csproj.AssemblyReference.cache
+C:\Users\lucas\Documents\Programação\Alura\C#\C#_pt_2_intro_OO\Bytebank\01-Bytebank\obj\Debug\net6.0\01-Bytebank.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lucas\Documents\Programação\Alura\C#\C#_pt_2_intro_OO\Bytebank\01-Bytebank\obj\Debug\net6.0\01-Bytebank.AssemblyInfoInputs.cache
+C:\Users\lucas\Documents\Programação\Alura\C#\C#_pt_2_intro_OO\Bytebank\01-Bytebank\obj\Debug\net6.0\01-Bytebank.AssemblyInfo.cs
+C:\Users\lucas\Documents\Programação\Alura\C#\C#_pt_2_intro_OO\Bytebank\01-Bytebank\obj\Debug\net6.0\01-Bytebank.csproj.CoreCompileInputs.cache
+C:\Users\lucas\Documents\Programação\Alura\C#\C#_pt_2_intro_OO\Bytebank\01-Bytebank\obj\Debug\net6.0\01-Bytebank.dll
+C:\Users\lucas\Documents\Programação\Alura\C#\C#_pt_2_intro_OO\Bytebank\01-Bytebank\obj\Debug\net6.0\refint\01-Bytebank.dll
+C:\Users\lucas\Documents\Programação\Alura\C#\C#_pt_2_intro_OO\Bytebank\01-Bytebank\obj\Debug\net6.0\01-Bytebank.pdb
+C:\Users\lucas\Documents\Programação\Alura\C#\C#_pt_2_intro_OO\Bytebank\01-Bytebank\obj\Debug\net6.0\01-Bytebank.genruntimeconfig.cache
+C:\Users\lucas\Documents\Programação\Alura\C#\C#_pt_2_intro_OO\Bytebank\01-Bytebank\obj\Debug\net6.0\ref\01-Bytebank.dll

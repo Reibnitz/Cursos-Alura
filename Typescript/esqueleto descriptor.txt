@@ -1,0 +1,34 @@
+	*** Descriptor usado para sobrescrever um método ***
+
+export function inspecionar() {
+    return function (
+        target: any, // origem do método original (não importa)
+        propertyKey: string, // nome do método original
+        descriptor: PropertyDescriptor // dá acesso a implementação do método decorado através de 'descritor.value'
+    ) {
+        const metodoOriginal = descriptor.value;
+        descriptor.value = function(...args: Array<any>) {
+            const retorno = metodoOriginal.apply(this, args); // referência de contexto
+            // https://www.w3schools.com/js/js_function_apply.asp
+            return retorno
+        }
+        return descriptor
+    }
+}
+
+	*** Descriptor usado para definir uma propriedade ***
+
+export function domInjector(seletor: string) {
+    return function(target: any, propertyKey: string) { // SEM DESCRIPTOR
+        function getter() {
+            const elemento = document.querySelector(seletor);
+            return elemento
+        }
+
+        Object.defineProperty(
+            target,
+            propertyKey,
+            {get: getter}
+        );
+    }
+}

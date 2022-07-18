@@ -1,0 +1,70 @@
+###### Property binding: ######
+Declarada no HTML por [], move o valor unilateralmente da variável declarada no 'component.ts' para o campo no 'component.html'
+Ex: <img [src]="itemImageUrl">
+
+###### Two-way binding: ######
+Declarada no HTML por [()], move bilateralmente o valor entre o campo no 'component.html' e a variável declarada no 'component.ts'.
+Ex: <input id="valor" name="valor" type="text" [(ngModel)]="valor">
+
+###### Event binding: ######
+Declarada no HTML por  (), atribui funções no 'component.ts' a eventos no 'component.html'. Sempre que haja a necessidade de propagação de valores, a variável $event deve ser passada como parâmetro.
+Ex: <button (click)="enviar($event)">Enviar</button>
+
+###### Decorator @Output (necessita importar módulo): ######
+Declarada no componente filho (arquivo TS), gera um evento que transfere dados ao elemento-pai.
+@Output() aoEnviar: EventEmitter<any> = new EventEmitter();
+O evento 'aoEnviar' deve ser invocado por algum método, onde se define os dados a serem passados.
+public enviar() {
+  this.aoEnviar.emit(
+    {
+      propriedade1: 'valor1',
+      propriedade2: 'valor2',
+    }
+}
+O evento 'aoEnviar' deve então ser chamado no arquivo HTML do elemento-pai, na tag do app do elemento filho, atribuindo esse objeto à um parâmetro para invocar um método do elemento-pai.
+<app-envio (aoEnviar)="receber($event)"></app-envio>
+
+###### Decorator @Input (necessita importar módulo): ######
+Declarada no componente filho, recebe informação através do HTML do elemento pai.
+Ex:	TS pai: public variavelEnviada = 'exemplo';
+	HTML <app-exemplo [variavelRecebida]="variavelEnviada"></app-exemplo>
+	TS Filho: @Input() public variavelRecebida!: string; // 'exemplo'
+
+###### Routing: ######
+Diretiva 'routerLink' navega para o HTML do componente desejado, mantendo as informações do HTML do elemento-pai.
+Ex: <a routerLink="caminho">Link</a>
+
+Diretiva 'routerLinkActive' habilita uma classe no DOM quando a rota estiver ativa, permitindo alterações no CSS.
+Ex: <a routerLink="caminho" routerLinkActive="ativo">Link</a>
+
+###### Campos obrigatórios (importar módulo FormsModule): ######
+Cria-se campo com a marcação 'required' na tag e atribui-se ele a uma variável através de [(ngModel)]. Depois, dá-se um nome ao campo e atribui-se a ele o valor do ngModel: #campoExemplo = [(ngModel)]. Com isso, pode-se verificar se ele está válido através do comando *ngIf="campoExemplo.invalid".
+Ex:	<input [(ngModel)]="usuario" #campoUsuario="ngModel" required>
+	<p *ngIf=campoUsuario.invalid">Campo de usuário é obrigatório</p>
+
+Também pode-se desabilitar um botão de enviar formulário. Para isso, dá-se um nome a esse formulário e o atribui ao ngForm: #exemploForm = "ngForm". Com isso, pode-se desabilitar o botão atribuindo a ele o comando [disabled]="exemploForm.invalid".
+Ex:	<form (ngSubmit)="login()" #loginForm="ngForm">
+	...
+	<button type="submit" [disabled]="ngForm.invalid">
+
+###### Reactive Forms (importar módulo ReactiveForms) ######
+No TS, define-se a variável para conter os dados do formulário em forma de objeto:	reactiveForm!: FormGroup;
+No TS, cria-se uma instância de FormBuilder no constructor:				constructor(private fb: FormBuilder) // Precisa importar
+No TS, cria-se o objeto com os dados do formulário no ngOnInit:				ngOnInit() { this.reactiveForm = this.fb.group({dadoExemplo: string});
+No HTML, atribui-se essa variável na tag form:						<form [formGroup]="reactiveForm">
+No HTML, atribuem-se as variáveis dos dados nas tags input:				<input type="text" [formControlName]="dadoExemplo">
+
+###### Behavior Subject ######
+https://backefront.com.br/como-usar-behavior-subject/
+
+###### Activated Route ######
+É possível utilizar Activated Route para buscar informação na url ativa. Ex: Buscar o id de URLs com id instanciado na rota.
+Incluir id no routing module	const Routes = [ { path: 'rota/:id', component: 'RotaComponent' } ]
+Chamar no constructor		constructor(private activatedRoute: ActivatedRoute) {}
+Chamar no ngOnInit		ngOnInit(): void { this.variavel = this.activatedRoute.snapshot.params['id']
+
+###### Interceptor ######
+Criar interceptor 						ng g interceptor
+Adicionar a lógica necessária (ex: informação no header)	request = request.clone({headers});
+Incluir providers no module embaixo de import			providers: [ { provide: HTTP_INTERCEPTORS, useClass: AutenticacaoInterceptor, multi: true, }, ]
+O uso de interceptors modifica as requisições HTTP, mas não é possível mudá-las, portanto se clona a request original (request.clone)

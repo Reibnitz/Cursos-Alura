@@ -1,0 +1,50 @@
+https://www3.ntu.edu.sg/home/ehchua/programming/howto/Regexe.html
+https://regexr.com/
+https://regex101.com/
+
+É possível adicionar regex direto a inputs no HTML:
+Ex: <input pattern="[0-9]*">
+
+
+Classes: 
+[] : Define uma classe de caracter. Todos os caracteres incluídos são considerados válidos.
+Dentro de uma classe, apenas os caracteres \ - ^ continuam agindo como meta-char
+\d : Dígito (0-9)
+\s : Espaço em branco (space, tab)
+\w : 'word char' Caracter alfa-numérico e underline (maiúsla e minúscula) == [a-zA-Z0-9_]
+. : Qualquer caracter. Para encontrar o caracter ponto, usar \.
+[^x] : Qualquer caracter com excessão de x
+
+    Quantifiers:
+* : Zero ou mais vezes
++ : Uma ou mais vezes
+? : Zero ou uma vez.
+{i} : Exatamente i vezes
+{i,} : i ou mais vezes
+{i,j} : Entre i e j vezes
+
+    Position anchors:
+Âncoras não identificam caracteres em si, mas sim suas posições. Exemplos dessas posições são: início/final da linha, início/final de uma palavra.
+\b : Define a fronteira (boundary) de uma string. Considera apenas word chars e espaços como limitações. Ex: \bde\b encontra apenas a palavra 'de' isolada.
+\B : Define o oposto de \b. Ex: \Bde\B encontra apenas as letras 'de' cercadas por \w
+^ : Utilizada antes da expressão. Identifica apenas casos onde a expressão se encontrar no início da linha.
+$ : Utilizada após a expressão. Identifica casos ao final da linha.
+
+Ex: ^www.+\.com$ - começa com 'www', seguida de um ou mais caracteres quaisquer, finalizada com '.com'
+
+    Grupos:
+() : Define um grupo de caracteres. É possível aplicar quantifiers e anchors sobre eles. Identifica como informação a ser coletada.
+(?:) : Define um grupo cuja informação não precisa ser coletada (non-capturing group).
+
+Ex: (?:\d{3}[\.-]?){3}(\d{2}) - Essa Regex utiliza grupos para quantificar os três primeiros grupos de três digitos sem capturá-los, seguida de um grupo capturáveç para os dois digitos identificadores finais. Adicionalmente, identifica como opcionais os pontos e hífens.
+
+    Greedy / Lazy:
+Quantifiers são greedy por natureza, ou seja, vão até onde puderem ir. Adicionando um '?', eles se tornam lazy, parando no primeiro encontro possível.
+Ex: <h1>Exemplo</h1>
+Regex greedy: <h1.*> // <h1>Exemplo</h1>
+Regex lazy: <h1.*?> // <h1>
+
+    Backrefrence:
+É possível referenciar grupos previamente estabelecidos.
+Alvo: <h1>Exemplo</h1> Regex: <(\w+)>\w*</\1> // Match
+Alvo: <h2>Exemplo</h1> Regex: <(\w+)>\w*</\1> // Não dá match (tag h2 diferente de h1)
